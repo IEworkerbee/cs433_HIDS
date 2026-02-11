@@ -9,6 +9,13 @@ SRC_THRESHOLD = config.SYN_SRCIP_THRESHOLD # Max SYNs allowed in time window fro
 DST_THRESHOLD = config.SYN_DSTIP_THRESHOLD # Max SYNs allowed in time window to a specific ip
 TIME_WINDOW = config.SYN_TIME_WINDOW  # seconds
 
+logging.basicConfig(
+    filename='HIDS.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filemode='a'
+)
+
 def detect_syn_flood(packet):
     if packet.haslayer(TCP) and packet[TCP].flags == 'S' and packet.haslayer(IP):
         src = packet[IP].src
@@ -19,10 +26,12 @@ def detect_syn_flood(packet):
         # Clean old timestamps for destination ips
         SYN_DSTIP_COUNTS[dst] = [t for t in SYN_DSTIP_COUNTS[dst] if now - t < TIME_WINDOW]
         if len(SYN_DSTIP_COUNTS[dst]) > DST_THRESHOLD:
+            logging.warning(f"[ALERT] Potential SYN flood on {dst}")
             print(f"[ALERT] Potential SYN flood on {dst}")
         # Clean old timestamps for source ips
         SYN_SRCIP_COUNTS[src] = [t for t in SYN_SRCIP_COUNTS[src] if now - t < TIME_WINDOW]
         if len(SYN_SRCIP_COUNTS[src]) > SRC_THRESHOLD:
+            logging.warning(f"[ALERT] Potential SYN flood from {src}")
             print(f"[ALERT] Potential SYN flood from {src}")
 
 sniff(filter="tcp", iface=get_if_list(), prn=detect_syn_flood, store=False)
