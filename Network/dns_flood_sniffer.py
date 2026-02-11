@@ -18,6 +18,12 @@ logging.basicConfig(
 )
 
 def detect_dns_flood(packet):
+    try:
+        packet.show()
+    except Exception as e:
+        logging.warning(f"[WARNING] Malformed packet detected: {e}")
+        print(f"[WARNING] Malformed packet detected: {e}")
+
     if packet.haslayer(DNS) and packet.haslayer(IP) and packet[IP].dport == 53:
         src = packet[IP].src
         dst = packet[IP].dst
