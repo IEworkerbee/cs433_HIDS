@@ -11,7 +11,7 @@ import random
 NUM_SYN_PACKETS = 50
 DST_IP = "127.0.0.1"
 DST_PORT = 80
-spacket = IP(dst=target_ip) / TCP(dport=target_port, flags="S")
+spacket = IP(dst=DST_IP) / TCP(dport=DST_PORT, flags="S")
 
 # Craft the SYN packet: IP Header / TCP Header (flags="S" for SYN)
 for i in range(NUM_SYN_PACKETS):
