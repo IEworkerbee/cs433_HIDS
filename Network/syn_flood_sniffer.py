@@ -1,5 +1,5 @@
-from scapy.all import *
 from collections import defaultdict
+from scapy.all import *
 import time
 import config
 
