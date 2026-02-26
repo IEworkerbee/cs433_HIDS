@@ -16,13 +16,18 @@ CS 433 Host Based Intrusion Detection System Project
 
 ### Installation
 
-Installation guide for the HIDS system. It is suggested you do this within a python virtual environment.
+Installation guide for the HIDS system.
 
 1. Clone the repo
    ```sh
    git clone https://github.com/IEworkerbee/cs433_HIDS.git
    ```
-2. Install python packages
+2. Create a Virtual Environment and activate it
+   ```sh
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+3. Install python packages
    ```sh
    pip install -r requirements.txt
    ```
