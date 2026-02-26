@@ -15,14 +15,30 @@ logging.basicConfig(
     filemode='a'
 )
 
+def report_log(err_name, summary):
+    report = f"{err_name} {summary}"
+    print(report)
+    logging.warning(report)
+
 def detect_malformed_packet(packet):
-    if packet.haslayer(IP):
-        old_checksum = packet[IP].chksum
-        del packet[IP].chksum
-        new_packet = IP(raw(packet[IP]))
-        if (old_checksum != new_packet[IP].chksum):
-            logging.warning(f"[WARNING] Checksum Mismatch (Malformed Packet): {packet.summary()}")
-            print(f"[WARNING] Checksum Mismatch (Malformed Packet): {packet.summary()}")
+
+    # First Round : Check if SCAPY can parse, if it cannot, this is a sign of a malformed packet. 
+    try:
+        if packet.haslayer(IP):
+            # Round 2 Checking for invalid internet header length
+            if packet[IP].ihl < 5: # Invalid Internet Header Length
+                report_log("[!] Malformed IP Header:", packet.summary())
+            
+            # Round 3 Check checksums
+            old_checksum = packet[IP].chksum
+            del packet[IP].chksum
+            new_packet = IP(raw(packet[IP]))
+            if (old_checksum != new_packet[IP].chksum):
+                report_log("[WARNING] Checksum Mismatch (Malformed Packet):", packet.summary())
+
+    except Exception as e:
+        # Catches packets that fail to parse
+        report_log("[WARNING] Malformed packet detected:", e)
 
 
 sniff(iface=get_if_list(), prn=detect_malformed_packet, store=False)
