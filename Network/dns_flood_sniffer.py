@@ -1,8 +1,9 @@
 from collections import defaultdict
 from scapy.all import *
 import time
-import config
+from . import config
 import logging
+import threading
 
 DNS_SRCIP_COUNTS = defaultdict(list)  # {ip: [timestamp1, timestamp2,...]}
 DNS_DSTIP_COUNTS = defaultdict(list) 
@@ -17,13 +18,7 @@ logging.basicConfig(
     filemode='a'
 )
 
-def detect_dns_flood(packet):
-    try:
-        packet.show()
-    except Exception as e:
-        logging.warning(f"[WARNING] Malformed packet detected: {e}")
-        print(f"[WARNING] Malformed packet detected: {e}")
-
+def detect_dns_flood(packet, msg_queue: Queue):
     if packet.haslayer(DNS) and packet.haslayer(IP) and packet[IP].dport == 53:
         src = packet[IP].src
         dst = packet[IP].dst
@@ -35,10 +30,21 @@ def detect_dns_flood(packet):
         if len(DNS_DSTIP_COUNTS[dst]) > DST_THRESHOLD:
             print(f"[ALERT] Potential DNS flood on {dst}")
             logging.warning(f"[ALERT] Potential DNS flood on {dst}")
+            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood on {dst}"))
         # Clean old timestamps for source ips
         DNS_SRCIP_COUNTS[src] = [t for t in DNS_SRCIP_COUNTS[src] if now - t < TIME_WINDOW]
         if len(DNS_SRCIP_COUNTS[src]) > SRC_THRESHOLD:
             print(f"[ALERT] Potential DNS flood from {src}")
             logging.warning(f"[ALERT] Potential DNS flood from {src}")
+            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood from {src}"))
 
-sniff(filter="udp port 53", iface=get_if_list(), prn=detect_dns_flood, store=False)
+def stop_listener(eventflag: threading.Event):
+    eventflag.wait()
+
+def run_dns_flood_sniffer(msg_queue: Queue, eventflag: threading.Event):
+    sniffer = AsyncSniffer(filter="udp port 53", iface=get_if_list(),  prn=lambda x: detect_dns_flood(x, msg_queue), store=False)
+    sniffer.start()
+    listener = threading.Thread(target=stop_listener, args=(eventflag,))
+    listener.start()
+    listener.join()
+    sniffer.stop()
