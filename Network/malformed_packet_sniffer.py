@@ -16,8 +16,7 @@ logging.basicConfig(
     filemode='a'
 )
 
-def report_log(err_name, summary):
-    report = f"{err_name} {summary}"
+def report_log(report):
     print(report)
     logging.warning(report)
 
@@ -31,14 +30,15 @@ def detect_malformed_packet(packet, msg_queue: Queue):
                 report_log("[!] Malformed IP Header:", packet.summary())
                 msg_queue.put(("Malformed Packet Detector", f"[!] Malformed IP Header: {packet.summary()}"))
             
-            # Round 3 Check checksums
+            # Round 3 Check checksums --- Checksum Offloading on the Hardware confuses the checksum detector
+            """
             old_checksum = packet[IP].chksum
             del packet[IP].chksum
-            new_packet = IP(raw(packet[IP]))
+            new_packet = packet.__class__(bytes(packet))
             if (old_checksum != new_packet[IP].chksum):
-                report_log("[WARNING] Checksum Mismatch (Malformed Packet):", packet.summary())
-                msg_queue.put(("Malformed Packet Detector", f"[WARNING] Checksum Mismatch (Malformed Packet): {packet.summary()}"))
-
+                report_log(f"[WARNING] Checksum Mismatch (Malformed Packet): Original Checksum: {old_checksum}, New Checksum: {new_packet[IP].chksum}, {packet.summary()}")
+                msg_queue.put(("Malformed Packet Detector", f"[WARNING] Checksum Mismatch (Malformed Packet): Original Checksum: {old_checksum}, New Checksum: {new_packet[IP].chksum}, {packet.summary()}"))
+            """
     except Exception as e:
         # Catches packets that fail to parse
         report_log("[WARNING] Malformed packet detected:", e)

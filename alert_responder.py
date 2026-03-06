@@ -4,6 +4,7 @@ import threading
 from Network.dns_flood_sniffer import run_dns_flood_sniffer
 from Network.malformed_packet_sniffer import run_malformed_packet_sniffer
 from Network.syn_flood_sniffer import run_syn_flood_sniffer
+import os
 
 IS_SHUTDOWN = False
 STOPFLAG = threading.Event()
@@ -19,14 +20,22 @@ def alert(message):
 
 # Adds Queue Tasks
 def listener_thread(msg_queue):
-    message = msg_queue.get() # message of form (title, msg)
-    if message != None:
-        alert(message)
-    msg_queue.task_done()
+    # Buffer stops repeated messages
+    buffer = ""
+    while True:
+        message = msg_queue.get(block = True) # message of form (title, msg)
+        if message != buffer and message != None:
+            buffer = message
+            alert(message)
+        elif message == None:
+            break
+        msg_queue.task_done()
 
 def stop_listener(eventflag):
     eventflag.wait()
 
+# TODO: Possibly remove these. I know they are silly, but they help conceptualize where the processes are
+# -------------------------------------------
 def malformed_thread(msg_queue, stop_flag):
     run_malformed_packet_sniffer(msg_queue, stop_flag)
 
@@ -35,6 +44,7 @@ def syn_thread(msg_queue, stop_flag):
 
 def dns_thread(msg_queue, stop_flag):
     run_dns_flood_sniffer(msg_queue, stop_flag)
+# -------------------------------------------
 
 if __name__ == '__main__':
     listener = threading.Thread(target=listener_thread, args=(msg_queue,))
