@@ -4,6 +4,7 @@ import threading
 from Network.dns_flood_sniffer import run_dns_flood_sniffer
 from Network.malformed_packet_sniffer import run_malformed_packet_sniffer
 from Network.syn_flood_sniffer import run_syn_flood_sniffer
+from ProcessMonitor.process_monitor import cpu_monitor
 import os
 
 IS_SHUTDOWN = False
@@ -44,6 +45,10 @@ def syn_thread(msg_queue, stop_flag):
 
 def dns_thread(msg_queue, stop_flag):
     run_dns_flood_sniffer(msg_queue, stop_flag)
+
+def proc_thread(msg_queue, stop_flag):
+    cpu_monitor(msg_queue, stop_flag)
+
 # -------------------------------------------
 
 if __name__ == '__main__':
@@ -51,12 +56,14 @@ if __name__ == '__main__':
     detector_0 = threading.Thread(target=malformed_thread, args=(msg_queue,STOPFLAG,))
     detector_1 = threading.Thread(target=syn_thread, args=(msg_queue,STOPFLAG,))
     detector_2 = threading.Thread(target=dns_thread, args=(msg_queue,STOPFLAG,))
+    cpu_detector = threading.Thread(target=proc_thread, args=(msg_queue,STOPFLAG,))
     stop_thread = threading.Thread(target=stop_listener, args=(STOPFLAG,))
 
     listener.start()
     detector_0.start()
     detector_1.start()
     detector_2.start()
+    cpu_detector.start()
     stop_thread.start()
 
     while IS_SHUTDOWN == False:
@@ -71,4 +78,5 @@ if __name__ == '__main__':
     detector_0.join()
     detector_1.join()
     detector_2.join()
+    cpu_detector.join()
     listener.join()

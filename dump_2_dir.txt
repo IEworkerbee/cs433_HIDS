@@ -1,0 +1,313 @@
+ERR: cannot access proc 0
+ERR: cannot access proc 4
+ERR: cannot access proc 140
+148,C:\WINDOWS,2026-03-09 20:53:52.614642
+ERR: cannot access proc 180
+204,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:52.622200
+ERR: cannot access proc 332
+476,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:52.625177
+ERR: cannot access proc 648
+ERR: cannot access proc 680
+ERR: cannot access proc 1040
+1060,C:\WINDOWS,2026-03-09 20:53:52.642085
+ERR: cannot access proc 1084
+1136,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:52.649493
+ERR: cannot access proc 1180
+ERR: cannot access proc 1204
+ERR: cannot access proc 1216
+ERR: cannot access proc 1352
+ERR: cannot access proc 1380
+ERR: cannot access proc 1472
+ERR: cannot access proc 1520
+ERR: cannot access proc 1568
+ERR: cannot access proc 1644
+1656,C:\WINDOWS\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy,2026-03-09 20:53:52.711253
+ERR: cannot access proc 1716
+ERR: cannot access proc 1736
+ERR: cannot access proc 1748
+ERR: cannot access proc 1788
+ERR: cannot access proc 1824
+1832,C:\WINDOWS\system32,2026-03-09 20:53:52.788899
+ERR: cannot access proc 1836
+ERR: cannot access proc 1888
+ERR: cannot access proc 1892
+ERR: cannot access proc 1944
+1972,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:52.829774
+2004,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:52.836006
+ERR: cannot access proc 2016
+ERR: cannot access proc 2024
+ERR: cannot access proc 2188
+ERR: cannot access proc 2200
+ERR: cannot access proc 2208
+ERR: cannot access proc 2228
+ERR: cannot access proc 2252
+ERR: cannot access proc 2332
+ERR: cannot access proc 2388
+ERR: cannot access proc 2396
+ERR: cannot access proc 2412
+ERR: cannot access proc 2488
+ERR: cannot access proc 2500
+ERR: cannot access proc 2616
+2640,C:\WINDOWS\system32,2026-03-09 20:53:53.026961
+ERR: cannot access proc 2680
+ERR: cannot access proc 2696
+ERR: cannot access proc 2724
+ERR: cannot access proc 2784
+ERR: cannot access proc 2864
+ERR: cannot access proc 2960
+ERR: cannot access proc 3096
+3156,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.076760
+3288,C:\WINDOWS\system32,2026-03-09 20:53:53.078330
+ERR: cannot access proc 3336
+ERR: cannot access proc 3352
+3376,C:\WINDOWS\system32,2026-03-09 20:53:53.100641
+ERR: cannot access proc 3472
+3584,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:53.110974
+ERR: cannot access proc 3628
+ERR: cannot access proc 3664
+ERR: cannot access proc 3704
+ERR: cannot access proc 3760
+ERR: cannot access proc 3800
+ERR: cannot access proc 3860
+ERR: cannot access proc 3868
+ERR: cannot access proc 3908
+ERR: cannot access proc 3928
+ERR: cannot access proc 3936
+3952,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.250773
+ERR: cannot access proc 3960
+4000,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.284609
+ERR: cannot access proc 4016
+ERR: cannot access proc 4032
+ERR: cannot access proc 4068
+ERR: cannot access proc 4128
+ERR: cannot access proc 4144
+ERR: cannot access proc 4256
+ERR: cannot access proc 4264
+ERR: cannot access proc 4320
+ERR: cannot access proc 4404
+ERR: cannot access proc 4492
+ERR: cannot access proc 4532
+ERR: cannot access proc 4540
+ERR: cannot access proc 4552
+ERR: cannot access proc 4588
+ERR: cannot access proc 4636
+ERR: cannot access proc 4668
+4688,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.442044
+ERR: cannot access proc 4740
+ERR: cannot access proc 4752
+ERR: cannot access proc 4800
+ERR: cannot access proc 4824
+ERR: cannot access proc 4860
+4888,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:53.500087
+ERR: cannot access proc 4900
+ERR: cannot access proc 4920
+ERR: cannot access proc 4932
+4972,C:\WINDOWS\System32,2026-03-09 20:53:53.521965
+ERR: cannot access proc 4996
+ERR: cannot access proc 5136
+ERR: cannot access proc 5156
+ERR: cannot access proc 5196
+5220,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.551381
+ERR: cannot access proc 5224
+ERR: cannot access proc 5388
+ERR: cannot access proc 5396
+ERR: cannot access proc 5444
+ERR: cannot access proc 5460
+ERR: cannot access proc 5520
+ERR: cannot access proc 5592
+5612,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.625862
+ERR: cannot access proc 5656
+5748,C:\WINDOWS\system32,2026-03-09 20:53:53.641851
+ERR: cannot access proc 5824
+6068,C:\WINDOWS\system32,2026-03-09 20:53:53.663077
+6240,C:\WINDOWS\system32,2026-03-09 20:53:53.664473
+6276,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:53.665873
+ERR: cannot access proc 6288
+ERR: cannot access proc 6292
+ERR: cannot access proc 6360
+6668,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.743570
+6680,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.745315
+ERR: cannot access proc 6692
+6732,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.758001
+ERR: cannot access proc 6944
+7060,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:53.766391
+7068,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.768206
+7112,C:\WINDOWS\system32,2026-03-09 20:53:53.770161
+7208,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:53.772393
+ERR: cannot access proc 7300
+ERR: cannot access proc 7448
+ERR: cannot access proc 7524
+ERR: cannot access proc 7672
+ERR: cannot access proc 7720
+7764,C:\WINDOWS\system32,2026-03-09 20:53:53.811285
+ERR: cannot access proc 7948
+ERR: cannot access proc 7956
+8064,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.826488
+8148,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.828258
+8292,C:\WINDOWS\system32,2026-03-09 20:53:53.830100
+8372,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.831856
+8468,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:53.838546
+ERR: cannot access proc 8672
+8728,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.852062
+8756,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.854054
+ERR: cannot access proc 8820
+8836,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:53.871426
+8860,C:\WINDOWS\system32,2026-03-09 20:53:53.873094
+8892,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.874710
+9124,C:\WINDOWS\system32,2026-03-09 20:53:53.876167
+9212,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.878026
+ERR: cannot access proc 9304
+9408,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:53.889635
+ERR: cannot access proc 9508
+9672,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.909044
+ERR: cannot access proc 9740
+9824,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.925065
+ERR: cannot access proc 9996
+10100,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:53.937917
+10252,C:\WINDOWS\system32,2026-03-09 20:53:53.939569
+10440,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.941284
+10648,C:\WINDOWS\system32,2026-03-09 20:53:53.943139
+ERR: cannot access proc 10708
+ERR: cannot access proc 10740
+10756,C:\Program Files (x86)\Steam,2026-03-09 20:53:53.960633
+ERR: cannot access proc 10864
+11080,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.973018
+ERR: cannot access proc 11096
+ERR: cannot access proc 11124
+11148,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.993312
+11260,c:\Users\kkosk\.vscode\extensions\ms-python.vscode-pylance-2026.1.1\dist,2026-03-09 20:53:53.995536
+11272,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:53.997526
+11504,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:53.999299
+11600,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:54.005783
+ERR: cannot access proc 11752
+11768,C:\WINDOWS\system32,2026-03-09 20:53:54.015776
+11780,C:\Windows\System32,2026-03-09 20:53:54.017562
+ERR: cannot access proc 11808
+12080,C:\Program Files\Google\Chrome\Application,2026-03-09 20:53:54.031398
+12232,C:\WINDOWS,2026-03-09 20:53:54.033268
+12248,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.035395
+12892,C:\WINDOWS\system32,2026-03-09 20:53:54.042209
+ERR: cannot access proc 12916
+ERR: cannot access proc 12936
+12964,C:\Program Files (x86)\Steam,2026-03-09 20:53:54.066232
+ERR: cannot access proc 13004
+13024,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.080058
+13072,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.086534
+ERR: cannot access proc 13156
+13504,C:\WINDOWS\system32,2026-03-09 20:53:54.099429
+13512,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:54.101344
+ERR: cannot access proc 13516
+14132,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:54.110015
+14184,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:54.111913
+14292,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.114022
+14616,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.120725
+14788,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.122690
+14824,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.124530
+ERR: cannot access proc 14872
+14948,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.128857
+14960,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.135724
+ERR: cannot access proc 15064
+ERR: cannot access proc 15148
+15172,C:\WINDOWS\system32,2026-03-09 20:53:54.154825
+ERR: cannot access proc 15280
+15472,C:\WINDOWS\system32,2026-03-09 20:53:54.168291
+ERR: cannot access proc 15484
+15636,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.176440
+15708,C:\WINDOWS\system32,2026-03-09 20:53:54.178342
+15732,C:\WINDOWS\system32,2026-03-09 20:53:54.190104
+15876,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:54.192254
+15896,C:\WINDOWS\system32,2026-03-09 20:53:54.195892
+15912,C:\WINDOWS\System32\DriverStore\FileRepository\FNFA7F~1.INF\driver,2026-03-09 20:53:54.208360
+16144,C:\WINDOWS\system32,2026-03-09 20:53:54.220557
+16272,C:\Users\kkosk\AppData\Local\Discord\app-1.0.9227,2026-03-09 20:53:54.224247
+ERR: cannot access proc 16372
+16468,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.241171
+16616,C:\Program Files (x86)\Steam,2026-03-09 20:53:54.260828
+16672,C:\WINDOWS\system32,2026-03-09 20:53:54.263556
+16720,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:53:54.266976
+16772,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.288986
+17020,C:\WINDOWS\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy,2026-03-09 20:53:54.292365
+17108,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.295748
+ERR: cannot access proc 17460
+18020,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.312097
+18032,C:\WINDOWS\system32,2026-03-09 20:53:54.315030
+ERR: cannot access proc 18088
+ERR: cannot access proc 18176
+18368,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.352216
+ERR: cannot access proc 18404
+18504,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.366537
+18628,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.368634
+18704,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.371140
+18952,C:\WINDOWS\system32,2026-03-09 20:53:54.374120
+18984,C:\Program Files (x86)\Steam,2026-03-09 20:53:54.377496
+19036,C:\Program Files\WindowsApps\Microsoft.YourPhone_1.26012.101.0_x64__8wekyb3d8bbwe,2026-03-09 20:53:54.379119
+ERR: cannot access proc 19220
+19268,C:\WINDOWS\system32,2026-03-09 20:53:54.383262
+19280,C:\Windows\System32,2026-03-09 20:53:54.386294
+ERR: cannot access proc 19284
+19312,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.401792
+19336,C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82,2026-03-09 20:53:54.405105
+19396,C:\WINDOWS\SystemApps\ShellExperienceHost_cw5n1h2txyewy,2026-03-09 20:53:54.408474
+19436,C:\WINDOWS\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy,2026-03-09 20:53:54.421571
+19560,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.425302
+19912,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:53:54.460200
+20244,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.460963
+20256,c:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:53:54.461777
+20352,C:\WINDOWS\system32,2026-03-09 20:53:54.462504
+20852,C:\Program Files\WindowsApps\DolbyLaboratories.DolbyAccess_3.27.7470.0_x64__rz1tebttyb220,2026-03-09 20:53:54.462908
+20976,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.478043
+21324,C:\WINDOWS\system32,2026-03-09 20:53:54.481914
+21332,C:\WINDOWS\system32,2026-03-09 20:53:54.485287
+21524,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.488745
+ERR: cannot access proc 21560
+21596,C:\Program Files\WindowsApps\DolbyLaboratories.DolbyAccess_3.27.7470.0_x64__rz1tebttyb220,2026-03-09 20:53:54.518492
+21724,C:\Users\kkosk\AppData\Local\Programs\Microsoft VS Code,2026-03-09 20:53:54.521657
+22012,C:\WINDOWS\system32,2026-03-09 20:53:54.525742
+22052,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.530035
+22376,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.534586
+ERR: cannot access proc 22732
+22920,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:53:54.549650
+ERR: cannot access proc 23420
+21188,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.104518
+14252,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.108356
+8656,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.167084
+22356,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.178680
+8640,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.182474
+15512,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.188368
+23584,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.198083
+23612,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.223864
+23632,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.289375
+23660,C:\Users\kkosk\Documents\github\cs433_HIDS\ProcessMonitor,2026-03-09 20:54:28.455019
+23860,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:54:29.414862
+24364,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:54:58.538408
+24452,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.769163
+24460,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.779452
+24472,C:\WINDOWS,2026-03-09 20:54:58.783507
+24496,C:\WINDOWS,2026-03-09 20:54:58.791214
+23844,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.813487
+20448,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.822200
+23984,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.866729
+20016,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.880904
+24044,C:\WINDOWS,2026-03-09 20:54:58.885279
+24048,C:\WINDOWS,2026-03-09 20:54:58.894821
+5836,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.908602
+19984,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:58.920245
+22900,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:59.293239
+24292,C:\WINDOWS,2026-03-09 20:54:59.308549
+9928,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:54:59.339779
+18184,C:\Program Files\Google\Chrome\Application\145.0.7632.160,2026-03-09 20:55:00.601851
+23636,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.896564
+7796,C:\WINDOWS,2026-03-09 20:55:32.902209
+23292,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.907414
+23644,C:\WINDOWS,2026-03-09 20:55:32.916125
+24448,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.933732
+19388,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.941778
+23200,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.979669
+5776,C:\WINDOWS,2026-03-09 20:55:32.985647
+21336,C:\WINDOWS,2026-03-09 20:55:32.990931
+23012,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:32.993577
+8440,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:33.012044
+22312,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:33.016367
+17952,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:33.372507
+20912,C:\WINDOWS,2026-03-09 20:55:33.394467
+23492,C:\Users\kkosk\Documents\github\cs433_HIDS,2026-03-09 20:55:33.411467
