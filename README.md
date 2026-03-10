@@ -31,3 +31,7 @@ Installation guide for the HIDS system.
    ```sh
    pip install -r requirements.txt
    ```
+4. Run main monitoring program
+   ```sh
+   python alert_responder.py
+   ```
