@@ -30,13 +30,13 @@ def detect_syn_flood(packet, msg_queue: Queue):
         if len(SYN_DSTIP_COUNTS[dst]) > DST_THRESHOLD:
             logging.warning(f"[ALERT] Potential SYN flood on {dst}")
             print(f"[ALERT] Potential SYN flood on {dst}")
-            msg_queue.put(("Syn Flood Detector", f"[ALERT] Potential SYN flood on {dst}"))
+            msg_queue.put(("Syn Flood Detector", f"[ALERT] Potential SYN flood on {dst}", ("block_ip", dst)))
         # Clean old timestamps for source ips
         SYN_SRCIP_COUNTS[src] = [t for t in SYN_SRCIP_COUNTS[src] if now - t < TIME_WINDOW]
         if len(SYN_SRCIP_COUNTS[src]) > SRC_THRESHOLD:
             logging.warning(f"[ALERT] Potential SYN flood from {src}")
             print(f"[ALERT] Potential SYN flood from {src}")
-            msg_queue.put(("Syn Flood Detector", f"[ALERT] Potential SYN flood from {src}"))
+            msg_queue.put(("Syn Flood Detector", f"[ALERT] Potential SYN flood from {src}", ("block_ip", src)))
 
 def stop_listener(eventflag: threading.Event):
     eventflag.wait()

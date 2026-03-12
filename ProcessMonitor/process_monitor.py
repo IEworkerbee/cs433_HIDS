@@ -95,7 +95,7 @@ def get_proc_cpu_use(pid, msg_queue):
         proc = psutil.Process(pid)
         cpu_use = proc.cpu_percent(interval=0.1)
         if cpu_use >= CPU_PERCENTAGE:
-            msg_queue.put(("Process Monitor",f"[Warning] CPU usage on process {pid}, exceeds {CPU_PERCENTAGE}%: {cpu_use}"))
+            msg_queue.put(("Process Monitor", f"[Warning] CPU usage on process {pid}, exceeds {CPU_PERCENTAGE}%: {cpu_use}", ("kill_process", pid)))
         with mutexes['cpu']:
             dumps['cpu'].write(f"{pid},{cpu_use},{str(datetime.now())}\n")
             dumps['cpu'].flush()

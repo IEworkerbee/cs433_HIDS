@@ -30,13 +30,13 @@ def detect_dns_flood(packet, msg_queue: Queue):
         if len(DNS_DSTIP_COUNTS[dst]) > DST_THRESHOLD:
             print(f"[ALERT] Potential DNS flood on {dst}")
             logging.warning(f"[ALERT] Potential DNS flood on {dst}")
-            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood on {dst}"))
+            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood on {dst}", ("block_ip", dst)))
         # Clean old timestamps for source ips
         DNS_SRCIP_COUNTS[src] = [t for t in DNS_SRCIP_COUNTS[src] if now - t < TIME_WINDOW]
         if len(DNS_SRCIP_COUNTS[src]) > SRC_THRESHOLD:
             print(f"[ALERT] Potential DNS flood from {src}")
             logging.warning(f"[ALERT] Potential DNS flood from {src}")
-            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood from {src}"))
+            msg_queue.put(("DNS Flood Detector", f"[ALERT] Potential DNS flood from {src}", ("block_ip", src)))
 
 def stop_listener(eventflag: threading.Event):
     eventflag.wait()

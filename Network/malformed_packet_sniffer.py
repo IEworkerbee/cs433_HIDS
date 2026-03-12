@@ -28,7 +28,7 @@ def detect_malformed_packet(packet, msg_queue: Queue):
             # Round 2 Checking for invalid internet header length
             if packet[IP].ihl < 5: # Invalid Internet Header Length
                 report_log("[!] Malformed IP Header:", packet.summary())
-                msg_queue.put(("Malformed Packet Detector", f"[!] Malformed IP Header: {packet.summary()}"))
+                msg_queue.put(("Malformed Packet Detector", f"[!] Malformed IP Header: {packet.summary()}", ("block_ip", packet[IP].src)))
             
             # Round 3 Check checksums --- Checksum Offloading on the Hardware confuses the checksum detector
             """
