@@ -208,5 +208,5 @@ __marimo__/
 
 # logs
 HIDS.log
-.txt
-.csv
+*.txt
+*.csv

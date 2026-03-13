@@ -145,7 +145,7 @@ def main_loop(msg_queue:Queue, stop_flag:threading.Event):
                 if pid not in EXCLUDED_PIDS:
                     procs.append([pid, create_time])
                     if [pid, create_time] not in procs_prev:
-                        thread = threading.Thread(target=monitor_process, args=(pid, msg_queue), daemon=True)
+                        thread = threading.Thread(target=monitor_process, args=(pid, stop_flag, msg_queue), daemon=True)
                         monitoring_threads.append(thread)
                         thread.start()
 
