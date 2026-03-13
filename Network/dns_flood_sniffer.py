@@ -29,8 +29,6 @@ logging.basicConfig(
     filemode='a'
 )
 
-
-
 def detect_dns_flood(packet, msg_queue: Queue, dns_log):
     if packet.haslayer(DNS) and packet.haslayer(IP) and packet[IP].dport == 53:
         src = packet[IP].src
@@ -56,7 +54,7 @@ def stop_listener(eventflag: threading.Event):
     eventflag.wait()
 
 def run_dns_flood_sniffer(msg_queue: Queue, eventflag: threading.Event):
-    dns_log = open("dns_log.csv", "w")
+    dns_log = open("Network/dns_log.csv", "w")
     dns_log.write("src,dst,timestamp\n")
     sniffer = AsyncSniffer(filter="udp port 53", iface=get_if_list(),  prn=lambda x: detect_dns_flood(x, msg_queue, dns_log), store=False)
     sniffer.start()

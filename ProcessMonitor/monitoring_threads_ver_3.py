@@ -20,7 +20,7 @@ import config
 
 dump = "dump_3"
 plog = "plog" # Learning Log
-plog_file = open(f"{plog}_data.csv", "w")
+plog_file = open(f"ProcessMonitor/{plog}_data.csv", "w")
 plog_file.write("pid,cpu_use,ave_cpu_use,num_children\n")
 poll_t = 1
 

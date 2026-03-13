@@ -54,7 +54,7 @@ def stop_listener(eventflag: threading.Event):
     eventflag.wait()
 
 def run_syn_flood_sniffer(msg_queue: Queue, eventflag: threading.Event):
-    syn_log = open("syn_log.csv", "w")
+    syn_log = open("Network/syn_log.csv", "w")
     syn_log.write("src,dst,timestamp\n")
     sniffer = AsyncSniffer(filter="tcp", iface=get_if_list(), prn=lambda x: detect_syn_flood(x, msg_queue, syn_log), store=False)
     sniffer.start()
