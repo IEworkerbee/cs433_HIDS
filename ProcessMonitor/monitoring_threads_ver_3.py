@@ -89,7 +89,7 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
             #open_files[pid].append([files, datetime.now().timestamp()])
 
             this_dump.write(f"{cpu_use},{datetime.now().timestamp()}\n")
-            plog_file.write(f"{pid},{cpu_use},{cpu_uses[pid]},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
+            plog_file.write(f"{pid},{cpu_use},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
             
             if sum(cpu_uses[pid]) / len(cpu_uses[pid]) > config.CPU_PERCENTAGE and len(cpu_uses[pid]) >= config.CPU_TIME_THRESH:
                 alert_raised = "sustained cpu use"
