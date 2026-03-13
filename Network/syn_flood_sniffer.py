@@ -1,9 +1,20 @@
 from collections import defaultdict
 from scapy.all import *
 import time
-from . import config
 from queue import Queue
 import threading
+
+# This is a thread so I have to do special stuff
+# Get the current file's directory
+current_dir = os.path.dirname(os.path.realpath(__file__))
+# Get the parent directory
+parent_dir = os.path.dirname(current_dir)
+
+# Add parent directory to sys.path
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+import config
 
 SYN_SRCIP_COUNTS = defaultdict(list)  # {ip: [timestamp1, timestamp2,...]}
 SYN_DSTIP_COUNTS = defaultdict(list) 

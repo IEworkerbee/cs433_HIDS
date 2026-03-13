@@ -4,7 +4,19 @@ from datetime import datetime
 import os
 import time
 from queue import Queue
-from .. import config
+import sys
+
+# This is a thread so I have to do special stuff
+# Get the current file's directory
+current_dir = os.path.dirname(os.path.realpath(__file__))
+# Get the parent directory
+parent_dir = os.path.dirname(current_dir)
+
+# Add parent directory to sys.path
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+import config
 
 dump = "dump_3"
 plog = "plog" # Learning Log
@@ -108,7 +120,7 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
     this_dump.close()
     return
 
-def main_loop(stop_flag:threading.Event, msg_queue:Queue):
+def main_loop(msg_queue:Queue, stop_flag:threading.Event):
     monitoring_threads = []
     procs_prev = []
 
@@ -133,7 +145,7 @@ def main_loop(stop_flag:threading.Event, msg_queue:Queue):
                 if pid not in EXCLUDED_PIDS:
                     procs.append([pid, create_time])
                     if [pid, create_time] not in procs_prev:
-                        thread = threading.Thread(target=monitor_process, args=(pid,), daemon=True)
+                        thread = threading.Thread(target=monitor_process, args=(pid, msg_queue), daemon=True)
                         monitoring_threads.append(thread)
                         thread.start()
 
