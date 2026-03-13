@@ -60,5 +60,6 @@ def suggest_config(suggestions, config_ver):
             file.write(f"{key} = {value}\n")
 
 
+
 if __name__ == "__main__":
     process_data, dns_data, syn_data = get_log_data()
