@@ -4,8 +4,12 @@ from datetime import datetime
 import os
 import time
 from queue import Queue
+from .. import config
 
 dump = "dump_3"
+plog = "plog" # Learning Log
+plog_file = open(f"{plog}_data.csv", "w")
+plog_file.write("pid,cpu_use,ave_cpu_use,num_children\n")
 poll_t = 1
 
 created = {}
@@ -73,12 +77,13 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
             #open_files[pid].append([files, datetime.now().timestamp()])
 
             this_dump.write(f"{cpu_use},{datetime.now().timestamp()}\n")
-
-            if sum(cpu_uses[pid]) / len(cpu_uses[pid]) > 80 and len(cpu_uses[pid]) >= 3:
+            plog_file.write(f"{pid},{cpu_use},{cpu_uses[pid]},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
+            
+            if sum(cpu_uses[pid]) / len(cpu_uses[pid]) > config.CPU_PERCENTAGE and len(cpu_uses[pid]) >= config.CPU_TIME_THRESH:
                 alert_raised = "sustained cpu use"
                 continue
             
-            if created.get(pid, 0) > 10:
+            if created.get(pid, 0) > config.NUM_CHILDREN:
                 alert_raised = "high child count"
                 continue
             
@@ -141,6 +146,7 @@ def main_loop(stop_flag:threading.Event, msg_queue:Queue):
 
     for thread in monitoring_threads:
         thread.join(timeout=5) 
+    plog_file.close()
 
 if __name__ == "__main__":
     main_loop(None, None)

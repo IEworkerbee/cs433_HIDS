@@ -18,13 +18,14 @@ logging.basicConfig(
     filemode='a'
 )
 
-def detect_syn_flood(packet, msg_queue: Queue):
+def detect_syn_flood(packet, msg_queue: Queue, syn_log):
     if packet.haslayer(TCP) and packet[TCP].flags == 'S' and packet.haslayer(IP):
         src = packet[IP].src
         dst = packet[IP].dst
         now = time.time()
         SYN_SRCIP_COUNTS[src].append(now)
         SYN_DSTIP_COUNTS[dst].append(now)
+        syn_log.write(f"{src},{dst},{now}\n")
         # Clean old timestamps for destination ips
         SYN_DSTIP_COUNTS[dst] = [t for t in SYN_DSTIP_COUNTS[dst] if now - t < TIME_WINDOW]
         if len(SYN_DSTIP_COUNTS[dst]) > DST_THRESHOLD:
@@ -42,9 +43,12 @@ def stop_listener(eventflag: threading.Event):
     eventflag.wait()
 
 def run_syn_flood_sniffer(msg_queue: Queue, eventflag: threading.Event):
-    sniffer = AsyncSniffer(filter="tcp", iface=get_if_list(), prn=lambda x: detect_syn_flood(x, msg_queue), store=False)
+    syn_log = open("syn_log.csv", "w")
+    syn_log.write("src,dst,timestamp\n")
+    sniffer = AsyncSniffer(filter="tcp", iface=get_if_list(), prn=lambda x: detect_syn_flood(x, msg_queue, syn_log), store=False)
     sniffer.start()
     listener = threading.Thread(target=stop_listener, args=(eventflag,))
     listener.start()
     listener.join()
     sniffer.stop()
+    syn_log.close()
