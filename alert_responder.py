@@ -4,7 +4,7 @@ import threading
 from Network.dns_flood_sniffer import run_dns_flood_sniffer
 from Network.malformed_packet_sniffer import run_malformed_packet_sniffer
 from Network.syn_flood_sniffer import run_syn_flood_sniffer
-from ProcessMonitor.process_monitor import cpu_monitor
+from ProcessMonitor.monitoring_threads_ver_3 import main_loop
 import os
 
 IS_SHUTDOWN = False
@@ -73,8 +73,7 @@ def dns_thread(msg_queue, stop_flag):
     run_dns_flood_sniffer(msg_queue, stop_flag)
 
 def proc_thread(msg_queue, stop_flag):
-    cpu_monitor(msg_queue, stop_flag)
-
+    main_loop(msg_queue, stop_flag)
 # -------------------------------------------
 
 if __name__ == '__main__':

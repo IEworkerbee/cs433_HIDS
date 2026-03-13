@@ -35,3 +35,8 @@ Installation guide for the HIDS system.
    ```sh
    python alert_responder.py
    ```
+
+### Notes
+
+Currently, certain files are not required for this to run. They are included as useful 
+notes for reference as well as a lack of confidence in new work. 
