@@ -22,7 +22,7 @@ DEBUGGING_MODE = False
 dump = "dump_3"
 plog = "plog" # Learning Log
 plog_file = open(f"ProcessMonitor/{plog}_data.csv", "w")
-plog_file.write("pid,cpu_use,ave_cpu_use,num_children\n")
+plog_file.write("pid,cpu_use,ave_cpu_use,rounds_active,num_children\n")
 poll_t = 1
 
 created = {}
@@ -92,7 +92,7 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
             if DEBUGGING_MODE:
                 this_dump.write(f"{cpu_use},{datetime.now().timestamp()}\n")
             
-            plog_file.write(f"{pid},{cpu_use},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
+            plog_file.write(f"{pid},{cpu_use},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
             
             if sum(cpu_uses[pid]) / len(cpu_uses[pid]) > config.CPU_PERCENTAGE and len(cpu_uses[pid]) >= config.CPU_TIME_THRESH:
                 alert_raised = "sustained cpu use"
