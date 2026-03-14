@@ -3,6 +3,7 @@ CS 433 Host Based Intrusion Detection System Project
 
 ### Authors
     - Kaegan Koski
+    - Henry Fleming
     - Add your names
     
 ### Prerequisites
