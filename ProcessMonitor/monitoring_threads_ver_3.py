@@ -18,6 +18,7 @@ if parent_dir not in sys.path:
 
 import config
 
+DEBUGGING_MODE = False
 dump = "dump_3"
 plog = "plog" # Learning Log
 plog_file = open(f"ProcessMonitor/{plog}_data.csv", "w")
@@ -72,7 +73,7 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
     except:
         pass
 
-    this_dump = open(f"dump_{pid}.txt", "w+")
+    if DEBUGGING_MODE: this_dump = open(f"dump_{pid}.txt", "w+")
 
     while not stop_flag.is_set() and proc_exists and alert_raised is None:
         try:
@@ -88,7 +89,9 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
             cpu_uses[pid].append(cpu_use)
             #open_files[pid].append([files, datetime.now().timestamp()])
 
-            this_dump.write(f"{cpu_use},{datetime.now().timestamp()}\n")
+            if DEBUGGING_MODE:
+                this_dump.write(f"{cpu_use},{datetime.now().timestamp()}\n")
+            
             plog_file.write(f"{pid},{cpu_use},{sum(cpu_uses[pid]) / len(cpu_uses[pid])},{created.get(pid, 0)}\n") # Data for thresholding
             
             if sum(cpu_uses[pid]) / len(cpu_uses[pid]) > config.CPU_PERCENTAGE and len(cpu_uses[pid]) >= config.CPU_TIME_THRESH:
@@ -115,9 +118,10 @@ def monitor_process(pid, stop_flag:threading.Event, msg_queue:Queue):
     if proc_exists:
         with mutexes['detect']:
             dumps['detect'].write(f"monitoring thread for {pid} terminated due to program ending\n")
-        
-    this_dump.flush()
-    this_dump.close()
+    
+    if DEBUGGING_MODE:
+        this_dump.flush()
+        this_dump.close()
     return
 
 def main_loop(msg_queue:Queue, stop_flag:threading.Event):
