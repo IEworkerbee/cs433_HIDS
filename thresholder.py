@@ -1,3 +1,10 @@
+"""
+THRESHOLDER:
+    Runs and uses log files to suggest a new config file by adjusting old config file by new metrics.
+    If you change train_on_config_suggestions to true:
+        It will train in place using suggested config output (as opposed to grabbing from perma config)
+"""
+
 import csv
 
 # If false, grabs from config but still saves to suggested
