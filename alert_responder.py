@@ -12,6 +12,7 @@ STOPFLAG = threading.Event()
 msg_queue = Queue()
 action_queue = Queue()
 input_queue = Queue()
+local_log = {}
 
 # recommended actions mapped to shell commands
 ACTIONS = {
@@ -26,7 +27,7 @@ def alert(message):
         message = message[1],
         app_name = "CS433 HIDS Alert System",
         app_icon = None
-    )
+    )   
 
 # reads stdin in a thread so the main loop can stay non-blocking
 def input_reader(q):
@@ -45,9 +46,12 @@ def listener_thread(msg_queue, action_queue):
             break
         title, body, *rest = message
         action = rest[0] if rest else None
-
-        if (title, body) != buffer:
-            buffer = (title, body)
+        if message[0] in local_log:
+            local_log[message[0]] += 1
+        else:
+            local_log[message[0]] = 1 
+        if message != buffer:
+            buffer = message
             alert((title, body))
 
             # queue up the recommended action if there is one
@@ -132,3 +136,4 @@ if __name__ == '__main__':
     detector_2.join()
     cpu_detector.join()
     listener.join()
+    print(local_log)

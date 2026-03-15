@@ -39,14 +39,15 @@ def get_log_data():
             process_data["ave_cpu_use"].append(row['ave_cpu_use'])
             process_data["num_children"].append(row['num_children'])
             process_data["rounds_active"].append(row['rounds_active'])
-    with open(slog, mode='r', newline='') as file:
+    
+    with open(dlog, mode='r', newline='') as file:
         reader = csv.DictReader(file, delimiter=',')
         for row in reader:
             dns_data["dst"].append(row['dst'])
             dns_data["src"].append(row['src'])
             dns_data["time_stamps"].append(row['timestamp'])
 
-    with open(dlog, mode='r', newline='') as file:
+    with open(slog, mode='r', newline='') as file:
         reader = csv.DictReader(file, delimiter=',')
         for row in reader:
             syn_data["dst"].append(row['dst'])
@@ -96,35 +97,34 @@ def get_average_pings(syn_data, dns_data, SYN_TIME_WINDOW, DNS_TIME_WINDOW):
     syns = len(syn_data["src"])
     dnss = len(dns_data["src"])
     for i in range(syns):
-        temp_max_syn_src = 0
-        temp_max_syn_dst = 0
-        for j in range(i, syns):
-            if float(syn_data["time_stamps"][i]) - float(syn_data["time_stamps"][j]) <= SYN_TIME_WINDOW: 
+        temp_max_syn_src = 1
+        temp_max_syn_dst = 1
+        for j in range(i + 1, syns):
+            if float(syn_data["time_stamps"][j]) - float(syn_data["time_stamps"][i]) <= SYN_TIME_WINDOW: 
                 if syn_data["src"][i] == syn_data["src"][j]:
                     temp_max_syn_src += 1
                     max_syn_src = max(max_syn_src, temp_max_syn_src)
-                elif syn_data["dst"][i] == syn_data["dst"][j]:
+                if syn_data["dst"][i] == syn_data["dst"][j]:
                     temp_max_syn_dst += 1
                     max_syn_dst = max(max_syn_dst, temp_max_syn_dst)
             else: 
                 break
-    #print(dns_data)
 
     for i in range(dnss):
-        temp_max_dns_src = 0
-        temp_max_dns_dst = 0
-        for j in range(i, dnss):
-            if float(dns_data["time_stamps"][i]) - float(dns_data["time_stamps"][j]) <= DNS_TIME_WINDOW: 
+        temp_max_dns_src = 1
+        temp_max_dns_dst = 1
+        for j in range(i + 1, dnss):
+            if float(dns_data["time_stamps"][j]) - float(dns_data["time_stamps"][i]) <= DNS_TIME_WINDOW: 
                 if dns_data["src"][i] == dns_data["src"][j]:
                     temp_max_dns_src += 1
                     max_dns_src = max(max_dns_src, temp_max_dns_src)
-                elif dns_data["dst"][i] == dns_data["dst"][j]:
+                if dns_data["dst"][i] == dns_data["dst"][j]:
                     temp_max_dns_dst += 1
                     max_dns_dst = max(max_dns_dst, temp_max_dns_dst)
             else: 
                 break
-
-    return max_syn_src / SYN_TIME_WINDOW, max_syn_dst / SYN_TIME_WINDOW, max_dns_src / DNS_TIME_WINDOW, max_dns_dst / DNS_TIME_WINDOW
+    print(max_dns_dst, max_dns_src)
+    return max_syn_src, max_syn_dst, max_dns_src, max_dns_dst
 
 if __name__ == "__main__":
     process_data, dns_data, syn_data = get_log_data()
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         "SYN_TIME_WINDOW":     str(c.SYN_TIME_WINDOW),
         "DNS_SRCIP_THRESHOLD": str(c.DNS_SRCIP_THRESHOLD),
         "DNS_DSTIP_THRESHOLD": str(c.DNS_DSTIP_THRESHOLD),
-        "DNS_TIME_WINDOWS":    str(c.DNS_TIME_WINDOW),
+        "DNS_TIME_WINDOW":    str(c.DNS_TIME_WINDOW),
         "CPU_PERCENTAGE":      str(c.CPU_PERCENTAGE),
         "CPU_TIME_THRESHOLD":  str(c.CPU_TIME_THRESHOLD),
         "NUM_CHILDREN":        str(c.NUM_CHILDREN)
@@ -152,10 +152,10 @@ if __name__ == "__main__":
     # more confidence means less adjustment (confidence of previous data means change small)
     adjustment = 1/(c.CONFIDENCE + 1)
     suggestions["CONFIDENCE"] = str(int(suggestions["CONFIDENCE"]) + 1)
-    suggestions["SYN_SRCIP_THRESHOLD"] = str(int(int(suggestions["SYN_SRCIP_THRESHOLD"]) + (adjustment * (avsynsrc - (int(suggestions["SYN_SRCIP_THRESHOLD"])/c.SYN_TIME_WINDOW)))))
-    suggestions["SYN_DSTIP_THRESHOLD"] = str(int(int(suggestions["SYN_DSTIP_THRESHOLD"]) + (adjustment * (avsyndst - (int(suggestions["SYN_DSTIP_THRESHOLD"])/c.SYN_TIME_WINDOW)))))
-    suggestions["DNS_SRCIP_THRESHOLD"] = str(int(int(suggestions["DNS_SRCIP_THRESHOLD"]) + (adjustment * (avdnssrc - (int(suggestions["DNS_SRCIP_THRESHOLD"])/c.DNS_TIME_WINDOW)))))
-    suggestions["DNS_DSTIP_THRESHOLD"] = str(int(int(suggestions["DNS_DSTIP_THRESHOLD"]) + (adjustment * (avdnsdst - (int(suggestions["DNS_DSTIP_THRESHOLD"])/c.DNS_TIME_WINDOW)))))
+    suggestions["SYN_SRCIP_THRESHOLD"] = str(int(int(suggestions["SYN_SRCIP_THRESHOLD"]) + (adjustment * (avsynsrc - int(suggestions["SYN_SRCIP_THRESHOLD"])))))
+    suggestions["SYN_DSTIP_THRESHOLD"] = str(int(int(suggestions["SYN_DSTIP_THRESHOLD"]) + (adjustment * (avsyndst - int(suggestions["SYN_DSTIP_THRESHOLD"])))))
+    suggestions["DNS_SRCIP_THRESHOLD"] = str(int(int(suggestions["DNS_SRCIP_THRESHOLD"]) + (adjustment * (avdnssrc - int(suggestions["DNS_SRCIP_THRESHOLD"])))))
+    suggestions["DNS_DSTIP_THRESHOLD"] = str(int(int(suggestions["DNS_DSTIP_THRESHOLD"]) + (adjustment * (avdnsdst - int(suggestions["DNS_DSTIP_THRESHOLD"])))))
 
     suggestions["NUM_CHILDREN"] = str(int(int(suggestions["NUM_CHILDREN"]) + (adjustment * (max_num_children - int(suggestions["NUM_CHILDREN"])))))
     suggestions["CPU_PERCENTAGE"] = str(int(int(suggestions["CPU_PERCENTAGE"]) + (adjustment * (max_cpu_usage - int(suggestions["CPU_PERCENTAGE"])))))
