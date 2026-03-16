@@ -6,8 +6,19 @@ TODO: Over sensitive. Probably from misimplementation.
 from collections import defaultdict
 from scapy.all import *
 import time
-from . import config
 import threading
+
+# This is a thread so I have to do special stuff
+# Get the current file's directory
+current_dir = os.path.dirname(os.path.realpath(__file__))
+# Get the parent directory
+parent_dir = os.path.dirname(current_dir)
+
+# Add parent directory to sys.path
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+import config
 
 logging.basicConfig(
     filename='HIDS.log',

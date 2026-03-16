@@ -19,4 +19,5 @@ for i in range(NUM_SYN_PACKETS):
     spacket[TCP].sport = random.getrandbits(16)
     spacket[TCP].seq = random.getrandbits(32)
     send(spacket, verbose=0)
+    print(f"Sent SYN {i} to {DST_IP} from {spacket[IP].src}:{spacket[TCP].sport}")
 

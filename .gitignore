@@ -208,4 +208,6 @@ __marimo__/
 
 # logs
 HIDS.log
-.txt
+*.txt
+*.csv
+config_*.py
