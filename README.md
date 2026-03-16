@@ -4,7 +4,7 @@ CS 433 Host Based Intrusion Detection System Project
 ### Authors
     - Kaegan Koski
     - John Heibel
-    - Add your names
+    - Henry Fleming
 
 ### Installation
 
