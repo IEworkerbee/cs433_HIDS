@@ -3,17 +3,8 @@ CS 433 Host Based Intrusion Detection System Project
 
 ### Authors
     - Kaegan Koski
-    - Henry Fleming
     - John Heibel
-    
-### Prerequisites
-
-#### Windows
-* npcap
-  go to https://npcap.com/#download and install
-
-#### Other
--
+    - Add your names
 
 ### Installation
 
@@ -33,10 +24,20 @@ CS 433 Host Based Intrusion Detection System Project
    ```
 4. Run main monitoring program (needs root for packet sniffing)
    ```sh
-   python alert_responder.py
+   sudo python alert_responder.py
    ```
+   Type `q` to quit. When a recommended action pops up, type `y` to execute or anything else to skip.
 
-### Notes
+### Testing
 
-Currently, certain files are not required for this to run. They are included as useful 
-notes for reference as well as a lack of confidence in new work. 
+Run any of the attack simulations in a separate terminal while the HIDS is running:
+```sh
+sudo python MaliciousActors/syn_flood_sim.py
+sudo python MaliciousActors/dns_flood_sim.py
+sudo python MaliciousActors/malformed_packet_sim.py
+python ProcessMonitor/cpu-hog.py
+```
+
+### Configuration
+
+Detection thresholds are in `Network/config.py`. Adjust as needed.
