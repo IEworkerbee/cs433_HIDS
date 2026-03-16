@@ -17,13 +17,12 @@ CS 433 Host Based Intrusion Detection System Project
 
 ### Installation
 
-Installation guide for the HIDS system.
-
 1. Clone the repo
    ```sh
    git clone https://github.com/IEworkerbee/cs433_HIDS.git
+   cd cs433_HIDS
    ```
-2. Create a Virtual Environment and activate it
+2. Create a virtual environment and activate it
    ```sh
    python -m venv .venv
    source .venv/bin/activate
@@ -32,7 +31,7 @@ Installation guide for the HIDS system.
    ```sh
    pip install -r requirements.txt
    ```
-4. Run main monitoring program
+4. Run main monitoring program (needs root for packet sniffing)
    ```sh
    python alert_responder.py
    ```
